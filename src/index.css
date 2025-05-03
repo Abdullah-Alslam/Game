@@ -1,0 +1,47 @@
+@import "tailwindcss";
+/* في ملف CSS الخاص بك */
+
+
+@layer {
+  .container {
+    @apply px-[30px] mx-auto;
+  }
+  .element-center {
+    @apply flex justify-center items-center;
+  }
+  .btn {
+    @apply bg-[#42b0d1] hover:bg-[@8cdae4] transition-all duration-200;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-size: 30px;
+  line-height: 40px;
+}
+.h{
+  font-size: 25px;
+}
+
+.lines{
+  animation-name:x ;
+  animation-duration:18s ;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+
+}
+@keyframes x{
+  0%{
+    translate: 0 0;
+  }
+100%{
+  content: "asdasdsasd";
+    translate:-1100px 0px;
+    
+  }
+
+}
+
+
