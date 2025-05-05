@@ -9,20 +9,19 @@ export default function Forums() {
       <TopBar />
       <Line />
 
-      {/* Top Banner */}
+      {/* البانر العلوي */}
       <div className="bg-[url(/img/page-top-bg/4.jpg)] bg-cover bg-center bg-no-repeat h-[60vh] flex items-center ">
         <div className=" px-4 md:px-10">
           <h2 className="text-3xl sm:text-5xl font-bold mb-4">OUR COMMUNITY</h2>
           <p className="text-sm sm:text-base max-w-xl mx-auto mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut perferendis quam, debitis.
+          Welcome to the hub of our gaming community! Dive into discussions, share tips, and stay updated with the latest news and trends in the gaming world.
+
           </p>
-          <div className="inline-block bg-[#ffb320] text-black rounded-full px-6 py-2 font-semibold cursor-pointer hover:bg-yellow-400 transition">
-            Read More
-          </div>
+
         </div>
       </div>
 
-      {/* Members Content */}
+      {/* محتوى الأعضاء */}
       <div className="bg-[url(/img/community-bg.jpg)] bg-cover bg-center bg-no-repeat py-20">
         <div className="bg-black/60 px-4 sm:px-10 lg:px-20 py-10 rounded-md">
           <h1 className="font-bold text-xl sm:text-2xl mb-10">All Members (344)</h1>
