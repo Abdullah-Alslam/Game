@@ -1,6 +1,7 @@
 import React from "react";
 import TopBar from "../../Components/website/TopBar";
 import Line from "../../Components/website/Line";
+import { Link } from "react-router-dom";
 
 export default function GameBlogPost() {
   return (
@@ -120,9 +121,12 @@ export default function GameBlogPost() {
             <span className="text-xl font-bold text-green-600">
               9.5 / 10 – Editor’s Choice
             </span>
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl transition">
-              Play Now
-            </button>
+            <Link to="https://steamdb.info/app/601050/" >
+              {" "}
+              <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl transition cursor-pointer">
+                Play Now
+              </button>
+            </Link>
           </div>
         </article>
       </div>

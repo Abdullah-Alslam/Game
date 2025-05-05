@@ -1,3 +1,4 @@
+// Car....
 export const car = [
   {
     src: "/img/categories/car/1.jpg",
@@ -81,7 +82,7 @@ export const car = [
     link: "https://steamdb.info/app/2504040/",
   },
 ];
-
+// sport....
 export const sport = [
   {
     src: "/img/categories/sport/1.jpg",
@@ -166,7 +167,7 @@ export const sport = [
     link: "https://steamdb.info/app/284160/",
   },
 ];
-
+// war....
 export const war = [
   {
     src: "/img/categories/war/1.jpg",

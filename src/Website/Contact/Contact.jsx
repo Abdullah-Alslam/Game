@@ -9,40 +9,38 @@ export default function Contact() {
       <TopBar />
       <Line />
       <div className="body">
-        {/* الصورة الخلفية */}
+        {/* Background Image */}
         <div className="bg-black bg-[url(/img/page-top-bg/2.jpg)] bg-no-repeat bg-cover bg-center h-[68vh]">
           <div className="flex flex-col px-6 sm:px-10 md:px-20 lg:px-40 py-20 gap-5">
             <h2 className="text-white text-3xl sm:text-4xl md:text-5xl">
               Contact Us
             </h2>
             <h2 className="text-base text-white leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur
-              <br />
-              adipisicing elit. Ut perferendis quam, debitis
+              We are here to assist you with any inquiries or concerns you
+              <br /> might have. Our team is always ready to help and provide
+              <br /> solutions. Feel free to reach out to us for support or any
+              general questions.
             </h2>
-            <div className="register text-white bg-[#ffb320] h-12 w-36 rounded-full">
-              <p className="text-center pt-3">Read More</p>
-            </div>
           </div>
         </div>
         <div className="my-[80px] w-full max-w-6xl mx-auto rounded-xl overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3218.5200958697565!2d37.126940916807015!3d36.22685790129322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDEzJzM2LjciTiAzN8KwMDcnMTkuNSJF!5e0!3m2!1sar!2sus!4v1745131779637!5m2!1sar!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3218.5200958697565!2d37.126940916807015!3d36.22685790129322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDEzJzM2LjciTiAzN8KwMDcnMTkuNSJF!5e0!3m2!1sen!2us!4v1745131779637!5m2!1sen!2us&hl=en"
             className="w-full h-[500px] border-0"
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
-        {/* محتوى الصفحة */}
+        {/* Page Content */}
         <div className="px-6 sm:px-10 md:px-20 py-10 flex flex-col lg:flex-row gap-10">
-          {/* معلومات التواصل */}
+          {/* Contact Information */}
           <div className="flex flex-col gap-10 lg:w-1/3">
             <h2 className="text-xl font-semibold">Contact Us</h2>
             <div className="text-[#878787] leading-loose">
-              Lorem ipsum, dolor sit amet consectetur adipisicing Sunt aut
-              quibusdam qui accusantium aliquam aperiam veniam incidunt magni
-              deleniti.
+              We offer various ways to get in touch. Whether you have questions
+              about our services or need assistance, don’t hesitate to contact
+              us. Our team is here to help you with any inquiries.
             </div>
             <div className="flex flex-col gap-5">
               <h2 className="text-[#ffb320] font-semibold">
@@ -65,7 +63,8 @@ export default function Contact() {
               <div className="flex flex-row gap-[30px] mt-[20px]">
                 {" "}
                 {icons.map((item, key) => (
-                  <a key={key}
+                  <a
+                    key={key}
                     href={item.to}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -78,7 +77,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* الفورم */}
+          {/* Form */}
           <div className="flex-1">
             <h2 className="text-xl font-semibold text-center mb-6">
               Leave a Reply

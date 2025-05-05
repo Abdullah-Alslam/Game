@@ -1,124 +1,100 @@
+import { Link } from "react-router-dom";
 import { card, recent, review, tournament } from "../../Components/Body/card";
 import { news } from "../../Components/icon/icons";
 import Line from "../../Components/website/Line";
 
 export default function Body() {
-   
   return (
-    <section className=" ">
-      <div className="body h-[520vh]">
-        <div className="img  bg-black bg-[url(/img/slider-1.jpg)]  h-[120vh]   bg-no-repeat ">
-          <div className="flex flex-col px-[160px]  py-[290px] gap-[20px]">
-            <h2 className="text-white text-[60px] ">
+    <section>
+      <div className="body">
+        {/* Hero Section */}
+        <div className="img bg-black bg-[url(/img/slider-1.jpg)] h-screen bg-no-repeat bg-cover">
+          <div className="flex flex-col px-6 md:px-16 lg:px-40 py-[150px] gap-5">
+            <h2 className="text-white text-4xl md:text-6xl font-bold">
               The Best <span className="text-[#ffb320]">Games</span> Out There
             </h2>
-            <h2 className="text-[20px] text-[white]">
-              The best site to download the best and latest games for free
+            <h2 className="text-lg md:text-xl text-white">
+              Explore and download the latest and <br /> greatest games all for free, all in one place.
             </h2>
-            <div className="register text-white bg-[#ffb320] h-[50px] w-[140px] rounded-[30px]">
-              <p className="text-center pt-[12px] ">Read More</p>
+            <div className="register text-white bg-[#ffb320] h-12 w-36 rounded-full flex items-center justify-center">
+              <Link to="/blog">Read More</Link>
             </div>
           </div>
         </div>
+
         <Line />
 
-                       {/* GAME */}
-        <div className="card-4 grid grid-cols-4 gap-[2px] col-g h-[400px]  my-[100px] mb-[220px] mx-[158px]">
+        {/* Game Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-20 px-4 md:px-16">
           {card.map((item, key) => (
-            <div key={key} className="  w-[300px]">
-              <span className="">{item.type} </span>
-              <img src={item.src} alt="" className="object-contain" />
-            </div>
+            <Link to={item.link} key={key}>
+              <div className="w-full">
+                <span>{item.type}</span>
+                <img src={item.src} alt="" className="object-contain w-full" />
+              </div>
+            </Link>
           ))}
         </div>
 
-        <div className="recent-game h-[850px]  bg-[#ffffff] bg-[url(/img/recent-game-bg.png)] bg-no-repeat bg-center  mt-[10px]">
-          <div className=" h-[120px] flex flex-col items-center justify-center gap-[30px]">
-            {news}
-            <h1 className="font-bold">Recent Games</h1>
+        {/* Recent Games */}
+        <div className="recent-game bg-[#ffffff] bg-[url(/img/recent-game-bg.png)] bg-no-repeat bg-center py-16">
+          <div className="text-center flex flex-col items-center justify-center  mb-10">
+            <div>{news}</div>
+            <br />
+            <h1 className="font-bold text-2xl">Recent Games</h1>
           </div>
-                       {/*RECENT GAME */}
-          <div className="cards flex flex-row items-center justify-center gap-[30px]">
+
+          <div className="flex flex-wrap justify-center gap-6 px-4">
             {recent.map((item, key) => (
               <div
                 key={key}
-                className="w-[360px]  bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+                className="w-full sm:w-[300px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
-                <img className="rounded-t-lg" src={item.src} alt="" />
-
+                <img className="rounded-t-lg w-full" src={item.src} alt="" />
                 <div className="p-5">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {item.title}
                   </h5>
-
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     {item.desc}
                   </p>
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  <Link
+                    to={item.link}
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800"
                   >
                     Read more
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* TOURNAMENT */}
-
-        <div className="gradient h-[500px] bg-[url(\img\pattern.png)]  flex flex-row items-center justify-center content-between gap-[30px] ">
+        {/* Tournament Section */}
+        <div className="gradient bg-[url(/img/pattern.png)] py-12 px-4 flex flex-wrap justify-center gap-8">
           {tournament.map((item, key) => (
-            <div key={key}>
-              <div className="bg-[#fb6e10] w-[150px] text-[13px] h-[30px] text-[white] font-semibold text-center pt-[5px]">
-                TOURUNEMT
+            <div key={key} className="max-w-xl w-full">
+              <div className="bg-[#fb6e10] text-white font-semibold text-center py-1 text-sm">
+                TOURNAMENT
               </div>
-              <div
-                key={key}
-                className="tournament bg-[#252525] h-[300px] w-[600px]"
-              >
-                <div className="ti-notic bg-[#ffb320] w-[200px] h-[40px] text-center font-bold pt-[7px]">
+              <div className="bg-[#252525] p-4">
+                <div className="bg-[#ffb320] text-center font-bold py-2 text-sm">
                   Premium Tournament
                 </div>
-                <div className="ti-content flex gap-[50px] items-center  justify-center mt-[30px] text-[12px]">
-                  <div className="">
-                    {" "}
-                    <img
-                      src={item.src}
-                      alt=""
-                      className="w-[210px] pl-[20px] "
-                    />
-                  </div>
-                  <div className="ti-text flex flex-col gap-[10px]">
-                    <h4 className="text-[#ffb320] text-[26px] font-bold pb-[10px]">
-                      World Of WarCraft
+                <div className="flex flex-col md:flex-row items-center gap-6 mt-6 text-white text-xs">
+                  <img src={item.src} alt="Tournament" className="w-[210px]" />
+                  <div>
+                    <h4 className="text-[#ffb320] text-xl font-bold mb-2">
+                      World of WarCraft: Battle Royale
                     </h4>
-                    <ul className="text-white flex flex-col gap-[5px]">
-                      <li>
-                        <span className="text-[#898990]">
-                          Tournament Beggins:
-                        </span>{" "}
-                        June 20, 2018
-                      </li>
-                      <li>
-                        <span className="text-[#898990]">Tounament Ends:</span>{" "}
-                        July 01, 2018
-                      </li>
-                      <li>
-                        <span className="text-[#898990]">Participants:</span> 10
-                        teams
-                      </li>
-                      <li>
-                        <span className="text-[#898990]">
-                          Tournament Author:
-                        </span>{" "}
-                        Admin
-                      </li>
+                    <ul className="space-y-1">
+                      <li><span className="text-[#898990]">Tournament Begins:</span> June 20, 2025</li>
+                      <li><span className="text-[#898990]">Tournament Ends:</span> July 01, 2025</li>
+                      <li><span className="text-[#898990]">Participants:</span> 20 teams</li>
+                      <li><span className="text-[#898990]">Author:</span> Admin</li>
                     </ul>
-                    <p className="text-[#898990]">
-                      <span className="text-yellow-400">Prizes:</span> 1st place
-                      $2000, 2nd place: $1000, 3rd place: $500
+                    <p className="mt-2 text-[#898990]">
+                      <span className="text-yellow-400">Prizes:</span> 1st: $5000, 2nd: $3000, 3rd: $1500
                     </p>
                   </div>
                 </div>
@@ -127,30 +103,24 @@ export default function Body() {
           ))}
         </div>
 
-        {/*  Review*/}
-
-        <div className="Review bg-[#ffffff]  bg-[url(/img/review-bg.png)] bg-contain bg-no-repeat  h-[870px]  flex flex-row items-center justify-center content-between gap-[30px] ">
+        {/* Top Rated */}
+        <div className="text-center text-3xl font-bold text-[#ffb320] my-12">Top Rated</div>
+        <div className="Review bg-[#ffffff] bg-[url(/img/review-bg.png)] bg-contain bg-no-repeat py-12 px-4 flex flex-wrap justify-center gap-8">
           {review.map((item, key) => (
-            <div key={key}>
-              {" "}
+            <Link to={item.link} key={key}>
               {item.mark}
-              <div className="flex flex-col gap-[10px] max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-[300px]">
-                <img
-                  className="rounded-t-lg h-[330px] w-[300px]"
-                  src={item.src}
-                  alt=""
-                />
-                <div className="">
-                  <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">
+              <div className="flex flex-col gap-3 w-[300px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <img className="rounded-t-lg h-[330px] w-full object-cover" src={item.src} alt="" />
+                <div className="px-4 pb-4">
+                  <h5 className="text-center text-xl font-bold text-gray-900 dark:text-white">
                     {item.title}
                   </h5>
-
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  <p className="text-gray-700 dark:text-gray-400">
                     {item.desc}
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

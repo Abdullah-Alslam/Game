@@ -5,65 +5,84 @@ import TopBar from "../../Components/website/TopBar";
 
 export default function Sport() {
   return (
-    <section className="h-[400vh]">
+    <section className="bg-[url(/icon/5.jpg)] bg-cover bg-no-repeat">
       <TopBar />
       <Line />
-      <div className="h-[85vh]">
+
+      {/* Banner with title */}
+      <div className="relative">
         <img
-          src="src/img/page-top-bg/5.jpg "
-          alt="green image"
-          className=" h-[66vh]"
+          src="/img/page-top-bg/5.jpg"
+          alt="Sport Banner"
+          className="w-full h-[60vh] object-cover"
         />
+        <div className="absolute bottom-[-25px] left-1/2 transform -translate-x-1/2 bg-amber-400 text-black text-3xl sm:text-4xl font-extrabold px-10 py-3 rounded-full shadow-xl z-10">
+          SPORT GAMES
+        </div>
       </div>
-      <div className="container">
-        <div className="text-center text-[40px] font-extrabold mt-[-60px] mb-[100px] bg-amber-300  " >SPORT GAMES </div>
-        <div className="card-game  grid grid-cols-3  gap-[70px] ">
+
+      {/* Games content */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 mt-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {sport.map((item, key) => (
             <div
               key={key}
-              className="max-w-sm bg-gray-800 text-white rounded-2xl overflow-hidden shadow-md p-5 hover:shadow-xl transition-all duration-300 "
+              className="bg-gray-800 text-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              <div className="hover:h-[200px]">
-              <img
-                className="w-full h-44 object-contein rounded-xl hover:h-full"
-                src={item.src}
-                alt="Game Cover"
-              />
-                </div>
-
-              <div className="mt-4">
-                <h2 className="text-xl font-bold">{item.name }</h2>
-                <div className="flex flex-wrap gap-2 mt-2 text-xs text-gray-300">
-                  <span className="bg-red-600 px-2 py-0.5 rounded-full">
-                    {item.category[0]}
-                  </span>
-                  <span className="bg-purple-600 px-2 py-0.5 rounded-full">
-                    {item.category[1]}
-                  </span>
-                  <span className="bg-blue-600 px-2 py-0.5 rounded-full">
-                  {item.category[2]}
-                  </span>
-                </div>
+              {/* Game image */}
+              <div className="h-52 overflow-hidden">
+                <img
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  src={item.src}
+                  alt="Game Cover"
+                />
               </div>
 
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex items-center text-yellow-400 text-sm space-x-1">
-                  <span>★ {item.star }</span>
-                  <span className="text-gray-300">(890k reviews)</span>
+              {/* Card content */}
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-xl font-bold mb-2">{item.name}</h2>
+                  <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-3">
+                    {item.category.map((cat, index) => (
+                      <span
+                        key={index}
+                        className={`px-2 py-1 rounded-full ${
+                          index === 0
+                            ? "bg-red-600"
+                            : index === 1
+                            ? "bg-purple-600"
+                            : "bg-blue-600"
+                        }`}
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <span className="bg-gray-700 px-3 py-1 rounded-full text-xs">
-                  PC / Console
-                </span>
-              </div>
 
-              <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition">
-                Click TO Download
-              </button>
+                {/* Rating + platform */}
+                <div className="flex items-center justify-between mt-auto">
+                  <div className="flex items-center text-yellow-400 text-sm space-x-1">
+                    <span>★ {item.star}</span>
+                    <span className="text-gray-300">(890k reviews)</span>
+                  </div>
+                  <span className="bg-gray-700 px-3 py-1 rounded-full text-xs">
+                    PC / Console
+                  </span>
+                </div>
+
+                {/* Download button */}
+                <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition">
+                  Click TO Download
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-[220px]">
+
+      {/* Footer */}
+      <div className="mt-20">
         <Footer />
       </div>
     </section>

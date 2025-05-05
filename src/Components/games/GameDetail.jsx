@@ -10,7 +10,7 @@ function GameDetail() {
   if (!game) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white text-2xl font-bold">
-        ❌ اللعبة غير موجودة
+        ❌ Game not found
       </div>
     );
   }
@@ -18,19 +18,19 @@ function GameDetail() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
       <div className="w-full max-w-4xl">
-        {/* صورة اللعبة */}
+        {/* Game Image */}
         <img
           src={game.path}
           alt={game.name}
           className="w-full h-100 object-cover rounded-lg shadow-lg "
         />
 
-        {/* اسم اللعبة */}
+        {/* Game Name */}
         <h1 className="text-4xl font-bold mt-6 text-center text-yellow-400">
           {game.name}
         </h1>
 
-        {/* فئات اللعبة */}
+        {/* Game Categories */}
         <div className="flex justify-center gap-4 mt-4 flex-wrap">
           {game.category.map((cat, idx) => (
             <span
@@ -42,29 +42,28 @@ function GameDetail() {
           ))}
         </div>
 
-        {/* تقييم اللعبة */}
+        {/* Game Rating */}
         <div className="flex justify-center items-center mt-6">
           <span className="text-yellow-400 text-2xl">⭐</span>
           <span className="ml-2 text-xl font-semibold">{game.star}</span>
         </div>
 
-        {/* وصف اللعبة */}
+        {/* Game Description */}
         <p className="mt-6 text-center text-lg text-gray-300">
-          {game.desc || "وصف اللعبة غير متوفر."}
+          {game.desc || "Description not available."}
         </p>
 
-        {/* زر تحميل اللعبة */}
+        {/* Download Button */}
         <div className="flex justify-center mt-8">
           <Link
-            to={game.link} // قم بتعديل الرابط ليكون الرابط الفعلي للتحميل
+            to={game.link} // Adjust the link to be the actual download link
             className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full transition duration-300"
           >
-            تحميل اللعبة
+            Download Game
           </Link>
         </div>
       </div>
       <div className="m-[50px]">
-        {" "}
         <Comments gameId="game123" />
       </div>
     </div>

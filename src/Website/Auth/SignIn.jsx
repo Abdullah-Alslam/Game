@@ -5,16 +5,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { handleFirebaseError } from "../../utils/handleFarebaseError";
 
 export default function SignIn() {
+  //USESTATE.....
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
   const [err, setErr] = useState();
   const nav = useNavigate();
-
+    // Handle Form....
   function HandleForm(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
+  //HandleSubmit....
   async function HandleSubmit(e) {
     e.preventDefault();
     try {

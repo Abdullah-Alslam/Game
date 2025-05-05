@@ -29,8 +29,6 @@ function App() {
           <Route path="war" element={<War />} />
           <Route path="car" element={<Car />} />
           <Route path="/gamedetail/:gameId" element={<GameDetail />} />
-
-          
           <Route path="forums" element={<Forums />} />
           <Route path="contact" element={<Contact />} />
           <Route path="blog" element={<Blog />} />

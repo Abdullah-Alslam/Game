@@ -5,62 +5,52 @@ import Footer from "../../Components/website/Footer";
 
 export default function Forums() {
   return (
-    <section className=" ">
+    <section className="bg-black text-white">
       <TopBar />
       <Line />
-      <div className="body h-[510vh]">
-        <div className="  bg-black bg-[url(/img/page-top-bg/4.jpg)]  h-[68vh]   bg-no-repeat ">
-          <div className="flex flex-col px-[160px]  py-[90px] gap-[20px]">
-            <h2 className="text-white text-[60px] ">OUR COMUNITY</h2>
-            <h2 className="text-[18px] text-[white]">
-              Lorem ipsum dolor sit amet consectetur
-              <br /> adipisicing elit. Ut perferendis quam, debitis
-            </h2>
-            <div className="register text-white bg-[#ffb320] h-[50px] w-[140px] rounded-[30px]">
-              <p className="text-center pt-[12px] ">Read More</p>
-            </div>
+
+      {/* Top Banner */}
+      <div className="bg-[url(/img/page-top-bg/4.jpg)] bg-cover bg-center bg-no-repeat h-[60vh] flex items-center ">
+        <div className=" px-4 md:px-10">
+          <h2 className="text-3xl sm:text-5xl font-bold mb-4">OUR COMMUNITY</h2>
+          <p className="text-sm sm:text-base max-w-xl mx-auto mb-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut perferendis quam, debitis.
+          </p>
+          <div className="inline-block bg-[#ffb320] text-black rounded-full px-6 py-2 font-semibold cursor-pointer hover:bg-yellow-400 transition">
+            Read More
           </div>
         </div>
-        <div className="bg-[url(/img/community-bg.jpg)]  h-[380vh] bg-center bg-no-repeat">
-          <div className=" h-[390vh] bg-[#b8b8b8]/10 mx-[70px] ">
-            <h1 className="font-bold p-[90px] pl-[120px]">All Members (344) </h1>
-            <div className="flex flex-col gap-[30px]">
-              {author.map((item, key) => (
-                <div
-                  key={key}
-                  className="container  community-post bg-[#1f2225] h-[280px] w-[1150px] "
-                >
-                  <div className="flex gap-[30px] pt-[50px] pl-[50px] py-[0px]">
-                    <div className="author">
-                      <img src={item.src} className="w-[80px] rounded-[40px]" />
-                    </div>
-                    <div className="post-content ">
-                      <h5 className="text-[#da2133]">
-                        {item.name}
-                        <span className="text-[#7a7a6f] pl-[19px]">
-                          posted an update
-                        </span>
-                      </h5>
-                      <div className="post-date text-[#ffa522] text-[13px] pt-[13px]">
-                        June 21, 2018
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-[white] pl-[155px] text-[14px]">
-                    Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc
-                    ing ipsum dolor sit ame. Lorem ipsum dolor sit amet,
-                    consectetur adipisc ing ipsum dolor sit ame.Donec venenatis
-                    at eros sit amet aliquam. Donec vel orci efficitur, dictum
-                    nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar
-                    nunc gravida interdum.{" "}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <Footer/>
       </div>
+
+      {/* Members Content */}
+      <div className="bg-[url(/img/community-bg.jpg)] bg-cover bg-center bg-no-repeat py-20">
+        <div className="bg-black/60 px-4 sm:px-10 lg:px-20 py-10 rounded-md">
+          <h1 className="font-bold text-xl sm:text-2xl mb-10">All Members (344)</h1>
+
+          <div className="flex flex-col gap-8">
+            {author.map((item, key) => (
+              <div
+                key={key}
+                className="bg-[#1f2225] w-full max-w-4xl mx-auto p-6 rounded-lg shadow-lg"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                  <img src={item.src} alt="Author" className="w-20 h-20 rounded-full object-cover" />
+                  <div>
+                    <h5 className="text-[#da2133] text-lg">
+                      {item.name}
+                      <span className="text-[#7a7a6f] pl-2 text-sm">posted an update</span>
+                    </h5>
+                    <div className="text-[#ffa522] text-sm pt-2">June 21, 2018</div>
+                    <p className="text-white pt-3 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <Footer />
     </section>
   );
 }

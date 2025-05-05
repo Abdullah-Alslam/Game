@@ -11,22 +11,22 @@ export default function Games() {
 
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9; // عدد الألعاب في الصفحة
+  const itemsPerPage = 9; // Number of games per page
 
-  // تصفية الألعاب بناءً على البحث
+  // Filter games based on search
   const filteredGames = allGames.filter((game) =>
     game.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // حساب بداية ونهاية الألعاب في الصفحة الحالية
+  // Calculate the start and end indexes for the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredGames.slice(indexOfFirstItem, indexOfLastItem);
 
-  // حساب عدد الصفحات
+  // Calculate the total number of pages
   const totalPages = Math.ceil(filteredGames.length / itemsPerPage);
 
-  // تغيير الصفحة
+  // Handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -44,6 +44,34 @@ export default function Games() {
         />
       </div>
 
+      {/* Category navigation links */}
+      <div className="flex gap-3  flex-wrap justify-end  mx-40 ">
+        <Link
+          to="/games"
+          className="bg-[#ffb320] text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          All Games
+        </Link>
+        <Link
+          to="/sport"
+          className="bg-[#ffb320] text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          Sport
+        </Link>
+        <Link
+          to="/car"
+          className="bg-[#ffb320] text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          Racing
+        </Link>
+        <Link
+          to="/war"
+          className="bg-[#ffb320] text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          War
+        </Link>
+      </div>
+
       <div className="p-3 max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">
           Find Your Game🎮
@@ -52,14 +80,14 @@ export default function Games() {
         <div className="w-full">
           <input
             type="text"
-            placeholder="اكتب اسم اللعبة..."
+            placeholder="Search for a game..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="p-3 border-2  border-gray-300 rounded-lg mb-14 w-[300px] focus:outline-none focus:border-blue-500 relative left-[930px]"
           />
         </div>
 
-        {/* عرض الألعاب */}
+        {/* Display games */}
         {filteredGames.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <AnimatePresence>
@@ -111,7 +139,7 @@ export default function Games() {
           </div>
         )}
 
-        {/* الترقيم */}
+        {/* Pagination */}
         <div className="flex justify-center mt-8">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
