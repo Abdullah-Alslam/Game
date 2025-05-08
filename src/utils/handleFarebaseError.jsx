@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // utils/firebaseErrors.js
 export function handleFirebaseError(code) {
     switch (code) {
@@ -16,7 +18,7 @@ export function handleFirebaseError(code) {
       case "auth/too-many-requests":
         return "This account has been temporarily disabled due to many failed login attempts. Please try again later ⏳";
       default:
-        return "An unexpected error occurred. Please try again ⚠️";
+        return <Link to="/"> </Link>;
     }
   }
   
