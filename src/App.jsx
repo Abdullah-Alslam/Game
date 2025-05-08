@@ -21,7 +21,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
 
-        <Route element={<RequireAuth />}>
+        
+          
           <Route index element={<HomePage />} />
           {/* Games */}
           <Route path="games" element={<Games />} />
@@ -29,9 +30,11 @@ function App() {
           <Route path="war" element={<War />} />
           <Route path="car" element={<Car />} />
           <Route path="/gamedetail/:gameId" element={<GameDetail />} />
+         <Route path="contact" element={<Contact />} />
+        <Route path="blog" element={<Blog />} />
+        <Route element={<RequireAuth />}>
           <Route path="forums" element={<Forums />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="blog" element={<Blog />} />
+ 
         </Route>
         <Route path="*" element={<ERR404 />} />
       </Routes>
