@@ -1,12 +1,49 @@
-# React + Vite
+# 🎮 TitanPlay
+🔗 **Live Demo:** [game-abdullah.vercel.app](https://game-abdullah.vercel.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TitanPlay** is a fully-featured gaming website that provides an interactive user experience, including Firebase login, categorized games, and detailed game pages with ratings, descriptions, and download links to Steam.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## Expanding the ESLint configuration
+- 🔐 **Firebase Authentication** for user login.
+- 🏠 **Homepage**:
+  - Showcases top-rated games.
+  - Displays the latest games.
+  - Direct download button that redirects to the game's Steam page.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎮 **Games Page**:
+  - Games categorized into 3 sections: **Racing**, **Sports**, **War**.
+  - Search functionality for easy filtering.
+
+- 📄 **Game Details Page**:
+  - A large image of the game.
+  - Short description of the game.
+  - User ratings and comments.
+  - A download button that redirects to Steam.
+
+- 📰 **Blog Page** to follow the latest gaming news.
+- 💬 **Forums Page** for player discussions.
+- 📩 **Contact Us Page** to interact with the site team.
+
+---
+
+## 🛠️ Technologies Used
+
+- React.js
+- Firebase Authentication
+- CSS / TailwindCSS
+- React Router
+- GitHub Pages or other deployment platforms
+- Steam API (External links)
+
+---
+
+## ⚙️ How to Run the Project
+
+```bash
+git clone https://github.com/username/titanplay.git
+cd titanplay
+npm install
+npm start
