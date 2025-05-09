@@ -7,11 +7,15 @@
 
 
 
+## 📸 Screenshots
+
 ### 🏠 Homepage
-![Homepage](./screenshots/home.png)
 
-"
+<img src="./screenshots/home.png" alt="Homepage Screenshot" width="600"/>
 
+### 🎮 Game Details
+
+<img src="./screenshots/details.png" alt="Game Details" width="600"/>
 
 
 
