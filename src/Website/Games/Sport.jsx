@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { sport } from "../../Components/games/games";
 import Footer from "../../Components/website/Footer";
 import Line from "../../Components/website/Line";
@@ -72,9 +73,11 @@ export default function Sport() {
                 </div>
 
                 {/* Download button */}
-                <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition">
-                  Click TO Download
-                </button>
+                <Link to={`/gamedetail/${item.name}`}>
+                    <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition cursor-pointer">
+                      Click to Download
+                    </button>
+                  </Link>
               </div>
             </div>
           ))}

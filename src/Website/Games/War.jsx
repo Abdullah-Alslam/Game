@@ -2,6 +2,7 @@ import Footer from "../../Components/website/Footer";
 import { war } from "../../Components/games/games";
 import TopBar from "../../Components/website/TopBar";
 import Line from "../../Components/website/Line";
+import { Link } from "react-router-dom";
 
 export default function War() {
   return (
@@ -72,9 +73,11 @@ export default function War() {
                 </div>
 
                 {/* Download button */}
-                <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition">
-                  Click TO Download
-                </button>
+                <Link to={`/gamedetail/${item.name}`}>
+                    <button className="mt-5 w-full bg-red-500 hover:bg-red-400 text-white font-bold py-2 rounded-xl transition cursor-pointer">
+                      Click to Download
+                    </button>
+                  </Link>
               </div>
             </div>
           ))}
