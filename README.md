@@ -1,9 +1,26 @@
-# 🎮 TitanPlay
+![home](https://github.com/user-attachments/assets/dc8baff6-5b9a-43e2-a336-fd39b807eaee)# 🎮 TitanPlay
 🔗 **Live Demo:** [game-abdullah.vercel.app](https://game-abdullah.vercel.app)
 
 **TitanPlay** is a fully-featured gaming website that provides an interactive user experience, including Firebase login, categorized games, and detailed game pages with ratings, descriptions, and download links to Steam.
 
 ---
+
+
+
+### 🏠 Homepage
+![Homepage](./screenshots/home.png)
+
+"
+
+
+
+
+
+
+
+
+
+
 
 ## 🚀 Key Features
 
