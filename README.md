@@ -55,7 +55,7 @@
 ## ⚙️ How to Run the Project
 
 ```bash
-git clone https://github.com/username/titanplay.git
+git clone https://github.com/Abdullah-Alslam/Game.git
 cd titanplay
 npm install
 npm start
