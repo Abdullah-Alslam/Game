@@ -42,7 +42,7 @@ const Comments = ({ gameId }) => {
           className="px-5 py-2 bg-[#ff6b00] hover:bg-[#e65c00] text-white font-semibold rounded transition"
         >
           Send
-        </button>''
+        </button>
       </div>
 
       {/* Displaying comments */}

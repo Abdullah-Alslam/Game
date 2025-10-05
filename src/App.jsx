@@ -6,12 +6,12 @@ import Car from "./Website/Games/Car";
 import War from "./Website/Games/War";
 import Forums from "./Website/Forums/Forums";
 import Contact from "./Website/Contact/Contact";
-import Blog from "./Website/Blog.jsx/Blog";
 import Register from "./Website/Auth/Register";
 import SignIn from "./Website/Auth/SignIn";
 import RequireAuth from "./Website/Auth/RequireAuth";
 import ERR404 from "./Website/Auth/ERR404";
-import GameDetail from "./Components/games/GameDetail";
+import GameBlogPost from "./Website/Blog/Blog";
+import GameDetail from "./Website/Games/GameDetail";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="car" element={<Car />} />
         <Route path="/gamedetail/:gameId" element={<GameDetail />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="blog" element={<Blog />} />
+        <Route path="blog" element={<GameBlogPost />} />
         <Route element={<RequireAuth />}>
           <Route path="forums" element={<Forums />} />
         </Route>

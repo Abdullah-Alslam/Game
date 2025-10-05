@@ -1,14 +1,25 @@
-import { signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
-import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function TopBar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleLogout = () => {
+  // Current user
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log("Current user:", currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  //Handle Logout
+  function handleLogout() {
     signOut(auth)
       .then(() => {
         console.log("Signed out successfully");
@@ -17,7 +28,7 @@ export default function TopBar() {
       .catch((error) => {
         console.error("Sign-out failed", error);
       });
-  };
+  }
 
   return (
     <header className="bg-[#131313] border-b-4 border-[#ffb320]">
@@ -28,26 +39,45 @@ export default function TopBar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 text-white text-[16px]">
-          <Link to="/">Home</Link>
-          <Link to="/games">Games</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/forums">Forums</Link>
-          <Link to="/contact">Contact</Link>
+        <nav className="hidden md:flex gap-8 text-white text-[16px] font-medium">
+          {["Home", "Games", "Blog", "Forums", "Contact"].map((item, index) => (
+            <Link
+              key={index}
+              to={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+              className="relative group"
+            >
+              <span className="transition-colors duration-300 group-hover:text-[#ffb320]">
+                {item}
+              </span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#ffb320] transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+          ))}
         </nav>
 
-        {/* Logout Button */}
+        {/* Auth Button */}
         <div className="hidden md:flex">
-          <button
-            onClick={handleLogout}
-            className="bg-[#ffb320] text-white px-6 py-2 rounded-full text-[16px] font-medium hover:bg-yellow-500 transition"
-          >
-            Log Out
-          </button>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="bg-[#ffb320] text-white px-6 py-2 rounded-full text-[16px] font-medium hover:bg-yellow-500 transition cursor-pointer"
+            >
+              Log Out
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate("/signin")}
+              className="bg-[#ffb320] text-white px-6 py-2 rounded-full text-[16px] font-medium hover:bg-yellow-500 transition cursor-pointer"
+            >
+              Sign In / Register
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden text-white text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+        <div
+          className="md:hidden text-white text-2xl cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>
@@ -55,20 +85,37 @@ export default function TopBar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#1a1a1a] text-white text-center py-4 flex flex-col gap-4">
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/games" onClick={() => setMenuOpen(false)}>Games</Link>
-          <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
-          <Link to="/forums" onClick={() => setMenuOpen(false)}>Forums</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-          <button
-            onClick={() => {
-              handleLogout();
-              setMenuOpen(false);
-            }}
-            className="bg-[#ffb320] text-white px-4 py-2 rounded-full font-medium hover:bg-yellow-500 transition"
-          >
-            Log Out
-          </button>
+          {["Home", "Games", "Blog", "Forums", "Contact"].map((item, index) => (
+            <Link
+              key={index}
+              to={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-[#ffb320] transition-colors duration-200"
+            >
+              {item}
+            </Link>
+          ))}
+          {user ? (
+            <button
+              onClick={() => {
+                handleLogout();
+                setMenuOpen(false);
+              }}
+              className="bg-[#ffb320] text-white px-4 py-2 rounded-full font-medium hover:bg-yellow-500 transition"
+            >
+              Log Out
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                navigate("/signin");
+                setMenuOpen(false);
+              }}
+              className="bg-[#ffb320] text-white px-4 py-2 rounded-full font-medium hover:bg-yellow-500 transition"
+            >
+              Sign In / Register
+            </button>
+          )}
         </div>
       )}
     </header>
